@@ -1,0 +1,26 @@
+{
+    "name": "dsw/ifriend",
+    "description": "Gestor del amigo invisible",
+    "type": "project",
+    "license": "GNU/GPL",
+    "autoload": {
+        "psr-4": {
+            "Dsw\\Ifriend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ale"
+        }
+    ],
+    "require": {
+        "philo/laravel-blade": "^3.1",
+        "illuminate/database": "^5.5",
+        "altorouter/altorouter": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
