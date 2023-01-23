@@ -10,25 +10,30 @@ class userController {
   public function index() {
     //Obtener los datos del modelo.
     $users = User::all();
-    echo "<h1>Listado de usuarios</h1>";
-    foreach ($users as $user) {
-      echo "<p>" . $user->name . "</p>";
-    }
+    //Llamo a la plantilla y le paso los datos
+    global $blade;
+    echo $blade->view()->make('list', compact('users'))->render();
   }
 
   // Show the form for creating a new resource.
-  public function create() {}
+  public function create() {
+    // global $blade;
+    // echo $blade->view()->make('create')->render();
+  }
 
   // Store a newly created resource in storage.
-  public function store() {}
+  public function store() {
+    echo "Almacenando...";
+    var_dump($_POST);
+  }
 
   // Display the specified resource.
   public function show($param) {
     $id = $param['id'];
-    echo "el id es " . $id;
     $user = User::find($id);
     if ($user) {
-      echo "<p>" . $user->name . "</p>";
+      global $blade;
+      echo $blade->view()->make('show', compact('user'))->render();
     } else {
       echo "<h2>Usuario no encontrado</h2>";
     }

@@ -24,11 +24,9 @@ $router = new AltoRouter();
 $router->map('GET', '/', 'home');
 $router->map('GET', '/user', 'userController#index');
 $router->map('GET', '/user/[i:id]', 'userController#show');
-
-function home() {
-  global $blade;
-  echo $blade->view()->make('home')->render();
-}
+//$router->map('GET', '/user/create', 'userController#create');
+$router->map('GET', '/user/create', 'create');
+$router->map('POST', '/user', 'userController#store');
 
 // End of list
 
@@ -42,7 +40,7 @@ if($match) {
      $controller->$action($match["params"]);
  } else {
      if(is_callable($match["target"])) call_user_func_array($match["target"], $match["params"]);
-     else require $match["target"];
+     else echo $blade->view()->make($match["target"])->render();;
  }
 } else {
  echo "Ruta no válida";

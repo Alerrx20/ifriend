@@ -1,7 +1,7 @@
 @extends('master')
 
-@section('title', 'Bienvenido a ifriend')
+@section('title', 'Detalles de ' . $user->name)
 @section('content')
-    <h2>Tu gesto del amigo invisible</h2>
+    <h2>{{$user->password}}</h2>
     <a href="/user" class="btn btn-primary">Listado de usuarios</a>
 @endsection
